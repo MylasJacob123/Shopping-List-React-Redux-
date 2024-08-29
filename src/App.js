@@ -7,6 +7,7 @@ import AddShoppingListItem from "./components/AddShoppingListItem";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { loadUsersFromStorage, loadCurrentUserFromStorage } from "./redux/UserAuthenticationReducer";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/add" element={<AddShoppingListItem />} />
+          <Route path="/user" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import shoppingListReducer from "../redux/ShoppingListReducer";
-import userSlice from "../redux/UserAuthenticationReducer";
+import userReducer, { loadUsersFromStorage, loadCurrentUserFromStorage } from "../redux/UserAuthenticationReducer";
 
 export const store = configureStore({
   reducer: {
     shoppingList: shoppingListReducer,
-    userAuthentication: userSlice,
+    userAuthentication: userReducer,
   },
 });
+
+store.dispatch(loadUsersFromStorage());
+store.dispatch(loadCurrentUserFromStorage());

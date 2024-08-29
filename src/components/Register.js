@@ -53,7 +53,7 @@ function Register() {
       console.log("Registered User:", user);
 
       alert("Registration Successful");
-      navigate("/add"); // Ensure this path is correct
+      navigate("/add");
     }
   };
 

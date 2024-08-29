@@ -51,6 +51,13 @@ function Navigation() {
                   Add Shopping Item
                 </NavLink>
               </li>
+              <li><NavLink 
+                  to="/user" 
+                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  end
+                >
+                  Profile
+                </NavLink></li>
               <li>
                 <button className="logout-btn" onClick={handleLogout}>Logout</button>
               </li>

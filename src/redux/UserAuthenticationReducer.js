@@ -40,6 +40,28 @@ const userSlice = createSlice({
         state.currentUser = JSON.parse(storedUser);
       }
     },
+    updateUser: (state, action) => {
+      const userIndex = state.users.findIndex(
+        (user) => user.email === action.payload.email
+      );
+      if (userIndex !== -1) {
+        console.log("Updating user at index:", userIndex, "with data:", action.payload);
+        state.users[userIndex] = { ...state.users[userIndex], ...action.payload };
+        localStorage.setItem("users", JSON.stringify(state.users));
+        if (state.currentUser && state.currentUser.email === action.payload.email) {
+          state.currentUser = { ...state.currentUser, ...action.payload };
+          localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
+        }
+      } else {
+        console.log("User not found for update:", action.payload.email);
+      }
+    },
+    deleteUser: (state, action) => {
+      state.users = state.users.filter((user) => user.email !== action.payload);
+      localStorage.setItem("users", JSON.stringify(state.users));
+      state.currentUser = null;
+      localStorage.removeItem("currentUser");
+    },
   },
 });
 
@@ -49,6 +71,8 @@ export const {
   logoutUser,
   loadUsersFromStorage,
   loadCurrentUserFromStorage,
+  updateUser,
+  deleteUser,
 } = userSlice.actions;
 
 export default userSlice.reducer;
