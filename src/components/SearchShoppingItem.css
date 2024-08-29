@@ -1,0 +1,18 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3%;
+    min-width: 40%;
+    min-height: 6vh;
+}
+
+.search-category {
+    min-width: 70%;
+    min-height: 4vh;
+    font-size: 1.1em;
+    text-align: center;
+    border: 1px solid #606c38;
+    border-radius: 8px;
+    color: #606c38;
+}

@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefae0;
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding: 32px;
+    border-radius: 20px;
+    border: 2px solid #bc6c25;
+  }
+  
+  .add-heading {
+    font-size: 2.5em;
+    color: #bc6c25;
+    margin-bottom: 20px;
+  }
+  
+  .add-form {
+    width: 100%;
+  }
+  
+  .add-item-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .add-item-inputs div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-item-inputs input,
+  .add-item-inputs select,
+  .add-item-inputs textarea {
+    font-size: 1.2em;
+    padding: 10px;
+    border: 1px solid #bc6c25;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .add-item-inputs textarea {
+    resize: vertical;
+  }
+  
+  .add-button {
+    width: 40%;
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 11px;
+    background-color: #283618;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+  }
+  
+  .add-button:hover {
+    background-color: black;
+    font-size: 1.4em;
+  }
