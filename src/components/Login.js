@@ -52,6 +52,7 @@ function Login() {
     <div className="login">
       <form className="login-form">
         <h1 className="login-heading">Login</h1>
+        <h2 className="login-sub-heading">WELCOME BACK USER!</h2>
         <div>
           <input
             className="login-inputs"

@@ -11,7 +11,7 @@ function Navigation() {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -24,6 +24,7 @@ function Navigation() {
                 <NavLink 
                   to="/register" 
                   className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  end
                 >
                   Register
                 </NavLink>
@@ -32,6 +33,7 @@ function Navigation() {
                 <NavLink 
                   to="/" 
                   className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  end
                 >
                   Login
                 </NavLink>
@@ -44,6 +46,7 @@ function Navigation() {
                 <NavLink 
                   to="/add" 
                   className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                  end
                 >
                   Add Shopping Item
                 </NavLink>

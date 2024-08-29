@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/UserAuthenticationReducer";
+import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
 function Register() {
@@ -11,7 +11,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const validateForm = () => {
@@ -47,13 +47,13 @@ function Register() {
         email,
         password
       };
-      
+
       dispatch(addUser(user));
-      
+
       console.log("Registered User:", user);
 
       alert("Registration Successful");
-      navigate("/add"); 
+      navigate("/add"); // Ensure this path is correct
     }
   };
 
@@ -65,6 +65,7 @@ function Register() {
     <div className="register">
       <form className="register-form" onSubmit={register}>
         <h1 className="register-heading">Register</h1>
+        <h2 className="register-sub-heading">Welcome to our Clothing Shopping App</h2>
 
         <div>
           <input

@@ -29,7 +29,7 @@ function AddShoppingListItem() {
   return (
     <div className="container">
       <div className="add">
-        <h1 className="add-heading">SHOPPING LIST</h1>
+        <h1 className="add-heading">CLOTHING SHOPPING LIST</h1>
         <div className="add-form">
           <div className="add-item-inputs">
             <div>

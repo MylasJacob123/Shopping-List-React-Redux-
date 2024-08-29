@@ -2,14 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 100%;
+    min-width: 80%;
     min-height: 60vh;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    min-width: 80%;
+    min-width: 60%;
     min-height: 49vh;
     gap: 20px;
     border: 2px solid #bc6c25;
@@ -19,6 +19,14 @@
 
 .login-heading {
     font-size: 3.4em;
+    margin-bottom: -25px;
+    font-weight: 500;
+}
+
+.login-sub-heading {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: #bc6c25;
 }
 
 .login-inputs {

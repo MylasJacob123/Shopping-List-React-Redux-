@@ -1,14 +1,15 @@
 .navigation {
     display: flex;
     justify-content: center;
-    width: 100%;
+    align-content: center;
+    width: 95%;
     min-height: 9vh;
 }
 
 .navbar {
     display: flex;
     justify-content: flex-end;
-    width: 85%;
+    width: 90%;
     min-height: 7vh;
     border: 2px solid #bc6c25;
     border-radius: 16px;
@@ -30,7 +31,7 @@
     text-decoration: none;
     color: #bc6c25;
     font-weight: 600;
-    font-size: 1.2em;
+    font-size: 1em;
     min-width: 130px;
     min-height: 30px;
     transition: all 0.3s ease;
@@ -40,18 +41,22 @@
     color: white;
     background-color: #bc6c25;
     border-radius: 7px;
-    min-width: 150px;
-    min-height: 40px;
-    font-size: 1.4em;
+    min-width: 200px;
+    min-height: 35px;
+    font-size: 1.2em;
+    font-weight: 300;
+    border: 1px solid orange;
 }
 
 .active {
     color: white;
     background-color: #bc6c25;
     border-radius: 7px;
-    min-width: 150px;
-    min-height: 40px;
-    font-size: 1.4em;
+    min-width: 200px;
+    min-height: 35px;
+    font-size: 1.2em;
+    font-weight: 300;
+    border: 1px solid orange;
 }
 
 .logout-btn {
@@ -72,4 +77,5 @@
     min-height: 50px;
     border-radius: 15px;
     color: wheat;
+
 }
