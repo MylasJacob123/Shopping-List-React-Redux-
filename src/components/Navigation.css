@@ -2,8 +2,9 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 95%;
+    width: 100%;
     min-height: 9vh;
+    margin-top: 1rem;
 }
 
 .navbar {

@@ -74,3 +74,7 @@
     background-color: black;
     font-size: 1.4em;
   }
+
+  .error-message {
+    color: red;
+  }

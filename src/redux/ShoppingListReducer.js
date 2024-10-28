@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
+  currentUserItems: JSON.parse(localStorage.getItem("currentUserItems")) || [],
   searchShoppingItem: "",
 };
 
@@ -9,25 +10,33 @@ const shoppingListSlice = createSlice({
   name: "shoppingList",
   initialState,
   reducers: {
+    setCurrentUserItems(state, action) {
+      state.currentUserItems = action.payload;
+      localStorage.setItem("currentUserItems", JSON.stringify(action.payload));
+    },
     addShoppingItem(state, action) {
-      state.items.push({
+      state.currentUserItems.push({
         ...action.payload,
         checkedOut: false,
       });
+      localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
     },
     deleteShoppingItem(state, action) {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      state.currentUserItems = state.currentUserItems.filter((item) => item.id !== action.payload);
+      localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
     },
     updateShoppingItem(state, action) {
-      const index = state.items.findIndex((item) => item.id === action.payload.id);
+      const index = state.currentUserItems.findIndex((item) => item.id === action.payload.id);
       if (index !== -1) {
-        state.items[index] = { ...state.items[index], ...action.payload };
+        state.currentUserItems[index] = { ...state.currentUserItems[index], ...action.payload };
+        localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
       }
     },
     checkoutShoppingItem(state, action) {
-      const index = state.items.findIndex((item) => item.id === action.payload);
+      const index = state.currentUserItems.findIndex((item) => item.id === action.payload);
       if (index !== -1) {
-        state.items[index].checkedOut = !state.items[index].checkedOut;
+        state.currentUserItems[index].checkedOut = !state.currentUserItems[index].checkedOut;
+        localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
       }
     },
     setSearchShoppingItem(state, action) {
@@ -42,5 +51,7 @@ export const {
   updateShoppingItem,
   checkoutShoppingItem,
   setSearchShoppingItem,
+  setCurrentUserItems,
 } = shoppingListSlice.actions;
+
 export default shoppingListSlice.reducer;

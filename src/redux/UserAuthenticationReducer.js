@@ -22,6 +22,9 @@ const userSlice = createSlice({
       if (user) {
         state.currentUser = user;
         localStorage.setItem("currentUser", JSON.stringify(user));
+        
+        const userItems = JSON.parse(localStorage.getItem("currentUserItems")) || [];
+        state.currentUser.items = userItems;
       }
     },
     logoutUser: (state) => {

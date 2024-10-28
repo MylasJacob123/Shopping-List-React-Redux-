@@ -1,25 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addShoppingItem } from "../redux/ShoppingListReducer";
 import "./AddShoppingListItem.css";
 import Search from "./SearchShoppingItem";
 import ShoppingList from "./ShoppingList";
 
+const categories = ["Hats", "T-Shirts", "Trousers", "Shoes", "Custom"];
+
 function AddShoppingListItem() {
   const [item, setItem] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("");
   const [optionalNotes, setOptionalNotes] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("shoppingListItems"));
+    if (storedItems) {
+      storedItems.forEach((storedItem) => {
+        dispatch(addShoppingItem(storedItem));
+      });
+    }
+  }, [dispatch]);
+
   const AddItem = () => {
-    dispatch(addShoppingItem({
-      id: Date.now(),
-      ShoppingItem: item,
-      quantity,
-      category,
-      optionalNotes
-    }));
+    setError("");
+
+    if (!item) {
+      setError("Item name is required.");
+      return;
+    }
+    if (quantity <= 0) {
+      setError("Quantity must be a positive number.");
+      return;
+    }
+    if (!category) {
+      setError("Please select a category.");
+      return;
+    }
+
+    dispatch(
+      addShoppingItem({
+        id: Date.now(),
+        ShoppingItem: item,
+        quantity,
+        category,
+        optionalNotes,
+      })
+    );
+
     setItem("");
     setQuantity(1);
     setCategory("");
@@ -40,6 +70,7 @@ function AddShoppingListItem() {
                 onChange={(e) => setItem(e.target.value)}
               />
             </div>
+            {error && <div className="error-message">{error}</div>}
             <div>
               <input
                 type="number"
@@ -51,14 +82,19 @@ function AddShoppingListItem() {
               />
             </div>
             <div>
-              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 <option value="">Select a category</option>
-                <option value="Hats">Hats</option>
-                <option value="T-Shirts">T-Shirts</option>
-                <option value="Trousers">Trousers</option>
-                <option value="Shoes">Shoes</option>
+                {categories.map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
+                ))}
               </select>
             </div>
+            {error && <div className="error-message">{error}</div>}
             <div>
               <textarea
                 name="optional-notes"

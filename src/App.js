@@ -7,6 +7,7 @@ import AddShoppingListItem from "./components/AddShoppingListItem";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { loadUsersFromStorage, loadCurrentUserFromStorage } from "./redux/UserAuthenticationReducer";
+import { setCurrentUserItems } from "./redux/ShoppingListReducer"; 
 import UserProfile from "./components/UserProfile";
 
 function App() {
@@ -15,6 +16,12 @@ function App() {
   useEffect(() => {
     dispatch(loadUsersFromStorage());
     dispatch(loadCurrentUserFromStorage());
+
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser) {
+      const userItems = JSON.parse(localStorage.getItem("currentUserItems")) || [];
+      dispatch(setCurrentUserItems(userItems));
+    }
   }, [dispatch]);
 
   return (
