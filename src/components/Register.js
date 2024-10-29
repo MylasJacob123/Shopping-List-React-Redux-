@@ -17,8 +17,12 @@ function Register() {
   const validateForm = () => {
     const errors = {};
 
-    if (!/^[A-Z][a-zA-Z]{0,24}$/.test(username)) {
-      errors.username = "Username must start with a capital letter, be no more than 25 characters.";
+    if (username.length === 0) {
+      errors.username = "Username is required.";
+    } else if (username.length > 25) {
+      errors.username = "Username must be no more than 25 characters.";
+    } else if (!/^[A-Z]/.test(username)) {
+      errors.username = "Username must start with a capital letter.";
     }
 
     if (age < 18 || age > 90) {
@@ -29,8 +33,8 @@ function Register() {
       errors.email = "Please enter a valid email address.";
     }
 
-    if (password.length < 8 || password.length > 25) {
-      errors.password = "Password must be between 8 and 25 characters.";
+    if (password.length < 6 || password.length > 20) {
+      errors.password = "Password must be between 6 and 20 characters.";
     }
 
     setErrors(errors);

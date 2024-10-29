@@ -15,6 +15,7 @@
     border: 2px solid #bc6c25;
     border-radius: 16px;
     background-color: #fefae0;
+    padding: 0 1rem; 
 }
 
 .nav-items {
@@ -89,5 +90,38 @@
     min-height: 50px;
     border-radius: 15px;
     color: wheat;
+}
 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .nav-items {
+        flex-direction: column; 
+        gap: 0.5rem; 
+    }
+
+    .nav-link,
+    .privacy-link {
+        min-width: 80%; 
+    }
+
+    .logout-btn {
+        min-width: 80%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link,
+    .privacy-link {
+        font-size: 0.9em;
+        display: flex;
+        align-items: center;
+    }
+
+    .logout-btn {
+        font-size: 0.9em;
+    }
 }

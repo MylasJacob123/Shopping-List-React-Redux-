@@ -21,8 +21,8 @@ function Login() {
       errors.email = "Please enter a valid email address.";
     }
 
-    if (password.length < 8 || password.length > 25) {
-      errors.password = "Password must be between 8 and 25 characters.";
+    if (password.length < 6 || password.length > 20) {
+      errors.password = "Password must be between 6 and 20 characters.";
     }
 
     setErrors(errors);

@@ -52,7 +52,7 @@ function Navigation() {
                 <NavLink
                   to="/privacy"
                   className={({ isActive }) =>
-                    isActive ? "nav-link active" : "privacy-link"
+                    isActive ? "privacy-link active" : "privacy-link"
                   }
                   end
                 >

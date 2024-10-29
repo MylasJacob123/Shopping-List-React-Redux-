@@ -8,7 +8,9 @@ import {
 import "./ShoppingList.css";
 
 function ShoppingList() {
-  const shoppingList = useSelector((state) => state.shoppingList.currentUserItems);
+  const shoppingList = useSelector(
+    (state) => state.shoppingList.currentUserItems
+  );
   const searchShoppingItem = useSelector((state) =>
     state.shoppingList.searchShoppingItem.toLowerCase()
   );

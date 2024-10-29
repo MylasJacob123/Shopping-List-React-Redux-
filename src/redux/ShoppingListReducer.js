@@ -18,6 +18,8 @@ const shoppingListSlice = createSlice({
       state.currentUserItems.push({
         ...action.payload,
         checkedOut: false,
+        unsynced: true,
+        sharedWith: [],
       });
       localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
     },
@@ -42,6 +44,14 @@ const shoppingListSlice = createSlice({
     setSearchShoppingItem(state, action) {
       state.searchShoppingItem = action.payload;
     },
+    shareShoppingList(state, action) {
+      const { itemId, userEmail } = action.payload;
+      const item = state.currentUserItems.find(item => item.id === itemId);
+      if (item && !item.sharedWith.includes(userEmail)) {
+        item.sharedWith.push(userEmail);
+        localStorage.setItem("currentUserItems", JSON.stringify(state.currentUserItems));
+      }
+    },
   },
 });
 
@@ -52,6 +62,7 @@ export const {
   checkoutShoppingItem,
   setSearchShoppingItem,
   setCurrentUserItems,
+  shareShoppingList,
 } = shoppingListSlice.actions;
 
 export default shoppingListSlice.reducer;

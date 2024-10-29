@@ -48,15 +48,12 @@ const userSlice = createSlice({
         (user) => user.email === action.payload.email
       );
       if (userIndex !== -1) {
-        console.log("Updating user at index:", userIndex, "with data:", action.payload);
         state.users[userIndex] = { ...state.users[userIndex], ...action.payload };
         localStorage.setItem("users", JSON.stringify(state.users));
         if (state.currentUser && state.currentUser.email === action.payload.email) {
           state.currentUser = { ...state.currentUser, ...action.payload };
           localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
         }
-      } else {
-        console.log("User not found for update:", action.payload.email);
       }
     },
     deleteUser: (state, action) => {
