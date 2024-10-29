@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import { loadUsersFromStorage, loadCurrentUserFromStorage } from "./redux/UserAuthenticationReducer";
 import { setCurrentUserItems } from "./redux/ShoppingListReducer"; 
 import UserProfile from "./components/UserProfile";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/add" element={<AddShoppingListItem />} />
           <Route path="/user" element={<UserProfile />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     </div>

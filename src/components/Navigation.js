@@ -7,7 +7,9 @@ import "./Navigation.css";
 function Navigation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.userAuthentication.currentUser);
+  const currentUser = useSelector(
+    (state) => state.userAuthentication.currentUser
+  );
 
   const handleLogout = () => {
     dispatch(logoutUser());
@@ -21,18 +23,22 @@ function Navigation() {
           {!currentUser && (
             <>
               <li>
-                <NavLink 
-                  to="/register" 
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                <NavLink
+                  to="/register"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   end
                 >
                   Register
                 </NavLink>
               </li>
               <li>
-                <NavLink 
-                  to="/" 
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   end
                 >
                   Login
@@ -43,23 +49,42 @@ function Navigation() {
           {currentUser && (
             <>
               <li>
-                <NavLink 
-                  to="/add" 
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                <NavLink
+                  to="/privacy"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "privacy-link"
+                  }
+                  end
+                >
+                  Privacy Policy
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/add"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   end
                 >
                   Add Shopping Item
                 </NavLink>
               </li>
-              <li><NavLink 
-                  to="/user" 
-                  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+              <li>
+                <NavLink
+                  to="/user"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
                   end
                 >
                   Profile
-                </NavLink></li>
+                </NavLink>
+              </li>
               <li>
-                <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                <button className="logout-btn" onClick={handleLogout}>
+                  Logout
+                </button>
               </li>
             </>
           )}

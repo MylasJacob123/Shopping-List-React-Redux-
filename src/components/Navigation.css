@@ -60,6 +60,17 @@
     border: 1px solid orange;
 }
 
+.privacy-link {
+    color: white;
+    background-color: navy;
+    border-radius: 7px;
+    min-width: 200px;
+    min-height: 35px;
+    font-size: 1.2em;
+    font-weight: 300;
+    border: 1px solid black;
+}
+
 .logout-btn {
     background-color: #dda15e;
     border: 3px solid #bc6c25;
